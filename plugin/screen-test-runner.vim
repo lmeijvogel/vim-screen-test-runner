@@ -30,7 +30,7 @@ function! s:DetermineTestRunner()
   if match(expand('%'), '\.feature$') != -1
     call s:SetTestRunner("cucumber")
   elseif match(expand('%'), '_spec\.rb$') != -1
-    call s:SetTestRunner("rspec --options .rspec-vim")
+    call s:SetTestRunner("rspec")
   else
     call s:SetTestRunner("ruby -Itest")
   endif
