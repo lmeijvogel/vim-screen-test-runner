@@ -19,7 +19,7 @@ function! RunCurrentLineInTest()
     call s:DetermineTestRunner()
   end
 
-  call s:ExecCommand("call g:ScreenShellSend(\"". g:bjo_test_runner ." ". g:bjo_test_file ."\")")
+  call s:ExecCommand(g:bjo_test_runner ." ". g:bjo_test_file)
 endfunction
 
 function! s:SetTestFile()
@@ -46,7 +46,7 @@ function! s:SetTestFileWithLine()
 endfunction
 
 function! s:ExecCommand(command)
-  if g:ScreenShellActive == 1
+  if exists("g:ScreenShellActive") && (g:ScreenShellActive == 1)
     exec "call g:ScreenShellSend(\"". a:command ."\")"
   else
     exec "!".a:command
