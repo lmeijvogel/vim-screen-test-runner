@@ -46,9 +46,10 @@ function! s:SetTestFileWithLine()
 endfunction
 
 function! s:ExecCommand(command)
+  let theCommand = "bundle exec ". a:command
   if exists("g:ScreenShellActive") && (g:ScreenShellActive == 1)
-    exec "call g:ScreenShellSend(\"". a:command ."\")"
+    exec "call g:ScreenShellSend(\"". theCommand ."\")"
   else
-    exec "!".a:command
+    exec "!".theCommand
   endif
 endfunction
