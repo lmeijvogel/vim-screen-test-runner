@@ -46,6 +46,8 @@ function! s:SetTestFileWithLine()
 endfunction
 
 function! s:ExecCommand(command)
+  exec "wa"
+
   let theCommand = "bundle exec ". a:command
   if exists("g:ScreenShellActive") && (g:ScreenShellActive == 1)
     exec "call g:ScreenShellSend(\"". theCommand ."\")"
