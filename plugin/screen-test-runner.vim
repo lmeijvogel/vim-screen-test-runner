@@ -1,3 +1,7 @@
+function! RunCurrentFile()
+  call s:ExecCommand("ruby ". @%)
+endfunction
+
 function! RunCurrentTest()
   let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\)$') != -1
   if in_test_file
