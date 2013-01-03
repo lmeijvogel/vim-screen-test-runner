@@ -23,7 +23,7 @@ function! RunCurrentLineInTest()
     call s:DetermineTestRunner()
   end
 
-  call s:ExecCommand(g:bjo_test_runner ." ". g:bjo_test_file)
+  call s:ExecCommand(g:bjo_test_runner ." ". g:bjo_test_file .":". g:bjo_test_file_line)
 endfunction
 
 function! s:SetTestFile()
